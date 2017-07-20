@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <title>Questionnaire-expert</title>
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .invalid {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,19 +19,22 @@
         </div>
         <div class="deductions">
             <p>Вычеты</p>
-            <input id="1-1" type="checkbox"><label for="1-1">на детей</label>
-            <input id="1-2" type="checkbox"><label for="1-2">на детей инвалидов</label>
+            <input id="on-children" type="checkbox"><label for="on-children">на детей</label>
+            <input id="on-invalid" type="checkbox"><label for="on-invalid">на детей инвалидов</label>
             <input id="1-3" type="checkbox"><label for="1-3">вычеты без ограничений</label>
             <input id="1-4" type="checkbox"><label for="1-4">иные</label>
+        </div>
+        <div class="invalid">
+            <input id="invalids" type="text"><label for="invalids">кол-во инвалидов</label>
         </div>
         <div class="children">
             <p>Дети</p>
             <input id="2-1" type="radio" name="children" data-deductions="1200"><label for="2-1">1</label>
             <input id="2-2" type="radio" name="children" data-deductions="2400"><label for="2-2">2</label>
-            <input id="2-3" type="radio" name="children"><label for="2-3">3</label>
-            <input id="2-4" type="radio" name="children"><label for="2-4">4</label>
-            <input id="2-5" type="radio" name="children"><label for="2-5">5</label>
-            <input id="2-6" type="radio" name="children"><label for="2-6">6</label>
+            <input id="2-3" type="radio" name="children" data-deductions="6400"><label for="2-3">3</label>
+            <input id="2-4" type="radio" name="children" data-deductions="9400"><label for="2-4">4</label>
+            <input id="2-5" type="radio" name="children" data-deductions="12400"><label for="2-5">5</label>
+            <input id="2-6" type="radio" name="children" data-deductions="15400"><label for="2-6">6</label>
         </div>
         <div class="accident">
             <label for="accident">Процент</label><input id="accident" type="number" value="0.2">

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Questionnaire-expert</title>
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<div class="data">
+	<div class="money">
+		<label for="money">Сумма до вычета</label><input id="money" type="number">
+	</div>
+	<div class="qwert">
+		<p>Вычеты</p>
+		<input id="1-1" type="checkbox"><label for="1-1">на детей</label>
+		<input id="1-2" type="checkbox"><label for="1-2">на детей инвалидов</label>
+		<input id="1-3" type="checkbox"><label for="1-3">вычеты без ограничений</label>
+		<input id="1-4" type="checkbox"><label for="1-4">иные</label>
+	</div>
+	<div class="children">
+		<p>Дети</p>
+		<input id="2-1" type="radio" data-v="1200"><label for="2-1">1</label>
+		<input id="2-2" type="radio" data-v="2400"><label for="2-2">2</label>
+		<input id="2-3" type="radio"><label for="2-3">3</label>
+		<input id="2-4" type="radio"><label for="2-4">4</label>
+		<input id="2-5" type="radio"><label for="2-5">5</label>
+		<input id="2-6" type="radio"><label for="2-6">6</label>
+	</div>
+	<div class="percent">
+		<label for="percent">Процент</label><input id="percent" type="number" value="0.2">
+	</div>
+</div>
+<div class="result">
+	<p>
+		<span>На руки</span>
+		<span id="hand"></span>
+	</p>
+	<p>
+		<span>Процент</span>
+		<span id="percentv"></span>
+	</p>
+	<p>
+		<span>пфр</span>
+		<span id="pfr"></span>
+	</p>
+	<p>
+		<span>ффомс</span>
+		<span id="ffoms"></span>
+	</p>
+	<p>
+		<span>фсс</span>
+		<span id="fss"></span>
+	</p>
+	<p>
+		<span>фсс</span>
+		<span id="test2"></span>
+	</p>
+</div>
+</body>
+<script src="jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+</script>
+</html>

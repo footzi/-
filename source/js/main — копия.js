@@ -7,7 +7,6 @@ $("#on-children").on("click", function() {
     }
 });
 
-//
 $(".children input").on("click", function() {
     $("#on-children").prop("checked", true);
 });
@@ -26,21 +25,31 @@ $("#on-other").on("click", function() {
     $("#other").val(0);
 });
 
-
 //кнопки
-
 $("#clear").on("click", function() {
     $("input:not(.accident)").val(0);
     $(".data input").prop("checked", false);
     $(".result").empty();
 });
+
+//главная функция
 function run() {
-    //вывод вычетов с детей
     let deductionsCh,
         deductionsDe,
         deductionsLi,
-        deductionsOt;
+        deductionsOt,
+        salary,
+        deductions,
+        percent,
+        hand,
+        pfr,
+        ffoms,
+        fss,
+        fss2,
+        totalE,
+        totalA;
 
+    //вывод вычетов с детей
     deductionsCh = 0;
     if ($(".children input").is(":checked")) {
         deductionsCh = parseInt($(".children input:checked").attr("data-deductions"));
@@ -53,34 +62,48 @@ function run() {
     deductionsLi = parseInt($("#limitation").val());
     deductionsOt = parseInt($("#other").val());
 
+    //подсчет общих вычетов
+    salary = $("#salary").val();
+    deductions = deductionsCh + deductionsDe + deductionsLi + deductionsOt;
 
-    let salary = $("#salary").val();
-    let deductions = deductionsCh + deductionsDe + deductionsLi + deductionsOt;
-
-    console.log("общий=" + deductions);
-    console.log("дети=" + deductionsCh);
-    console.log("инвалиды=" + deductionsDe);
-    console.log("ограничения=" + deductionsLi);
-    console.log("другие=" + deductionsOt);
-
-    let percent;
-    if (deductions<salary) {
+    //проверка вывода вычетов
+    percent;
+    if (deductions < salary) {
         percent = (salary - deductions) * 13 / 100;
     } else {
         percent = 0;
     };
 
+    // $("#option1").on("click", function() {
 
-    let hand = salary - percent;
-    let pfr = salary * 22 / 100;
-    let ffoms = salary * 5.1 / 100;
-    let fss = salary * 2.9 / 100;
-    let fss2 = salary * 0.2 / 100;
-    let totalE = pfr + ffoms + fss + fss2;
-    let totalA = percent + totalE;
+    //         console.log("выбран первый")
+    //     })
+    if ($("#option1").is(":checked")) {
+        console.log("выбран первый")
+    }
+    if ($("#option2").is(":checked")) {
+        console.log("выбран второй")
+    }
+    //прямой расчет
+    function direct() {
+        hand = salary - percent;
+        pfr = salary * 22 / 100;
+        ffoms = salary * 5.1 / 100;
+        fss = salary * 2.9 / 100;
+        fss2 = salary * 0.2 / 100;
+        totalE = pfr + ffoms + fss + fss2;
+        totalA = percent + totalE;
+    };
+    direct();
+
+    function reverse() {
+        precent;
+        hand = salary + percent;
+    }
+    //расчеты зп и процентов
 
 
-
+    //вывод данных на страницу    
     $("#hand").html(hand.toFixed(0));
     $("#percent").html(percent.toFixed(0));
     $("#pfr").html(pfr.toFixed(0));
@@ -92,9 +115,11 @@ function run() {
 };
 run();
 
+//выполение функции на нажатие кнопки
 $(".data input").on("keyup", function() {
     run();
 });
+//выполение функции при изменении объектов
 $(".data input").change(function() {
     run();
 })

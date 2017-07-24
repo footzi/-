@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
-//var concat = require('gulp-concat');
-//var uglify = require('gulp-uglifyjs');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglifyjs');
 //var rename = require('gulp-rename');
 //var imagemin = require("gulp-imagemin");
 //var pngquant = require("imagemin-pngquant");
@@ -34,6 +34,20 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('../public/styles'));
 });
 
+//js
+gulp.task("js", function() {
+    return gulp.src([
+            'libs/jquery.min.js',
+            'js/**/*'
+        ])
+        .pipe(concat('main.min.js'))
+        .pipe(uglify())
+        .on('error', notify.onError({
+            title: 'JS Compilation Failed',
+            message: '<%= error.message %>'
+        }))
+        .pipe(gulp.dest('../public/js'))
+})
 
 //browserSync
 gulp.task('browserSync', function() {
@@ -48,6 +62,8 @@ gulp.task('browserSync', function() {
 gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch('*.html', ['html'])
     gulp.watch('styles/**/*.scss', ['sass'])
+    gulp.watch('js/**/*.js', ['js'])
+    gulp.watch('../public/js/**/*', browserSync.reload)
 });
 
 gulp.task("default", ["watch"])

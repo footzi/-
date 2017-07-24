@@ -27,8 +27,8 @@ $("#on-other").on("click", function() {
 
 //кнопки
 $("#clear").on("click", function() {
-    $("input:not(.accident)").val(0);
-    $(".data input").prop("checked", false);
+   // $("input:not(.accident)").val(0);
+    $(".data input:not(.option input)").prop("checked", false);
     $(".result").empty();
 });
 
@@ -39,6 +39,7 @@ function run() {
         deductionsLi,
         deductionsOt,
         salary,
+        accident,
         deductions,
         percent,
         hand,
@@ -49,49 +50,83 @@ function run() {
         totalE,
         totalA;
 
-    //вывод вычетов с детей
+    //получение inputов
+     salary = parseInt($("#salary").val());
+     accident = $("#accident").val();
+
+    //получение вычетов с детей
     deductionsCh = 0;
     if ($(".children input").is(":checked")) {
         deductionsCh = parseInt($(".children input:checked").attr("data-deductions"));
     };
 
-    //вывод вычетов с детей-инвалидов;
+    //получение остальных вычетов;
     deductionsDe = parseInt($("#disabled").val() * 12000);
-
-    //вывод остальных вычетов
     deductionsLi = parseInt($("#limitation").val());
     deductionsOt = parseInt($("#other").val());
 
     //подсчет общих вычетов
-    salary = $("#salary").val();
     deductions = deductionsCh + deductionsDe + deductionsLi + deductionsOt;
 
     //проверка вывода вычетов
-    percent;
     if (deductions < salary) {
         percent = (salary - deductions) * 13 / 100;
     } else {
         percent = 0;
     };
 
+    
+
+    //выбор режима расчета
+    if ($("#option1").is(":checked")) {
+        $("#hand-text").html("зп на руки");      
+        direct();
+        
+    }
+    if ($("#option2").is(":checked")) {
+        $("#hand-text").html("зп грязными");
+        reverse();
+    };
+    
+    //прямой расчет
+    function direct() {  
+        hand = salary - percent;
+    };
+        
+    //обратный расчет
+    function reverse() {
+        percent=(salary-deductions)*14.94/100; //изменить процент
+        
+    // if (percent<0) {
+    //         console.log("menshe");
+    // };
+    //     console.log(percent);
+        salary=salary+percent;
+        hand=salary;
+    }
+
     //расчеты зп и процентов
-    hand = salary - percent;
     pfr = salary * 22 / 100;
     ffoms = salary * 5.1 / 100;
     fss = salary * 2.9 / 100;
-    fss2 = salary * 0.2 / 100;
+    fss2 = salary * accident / 100;
     totalE = pfr + ffoms + fss + fss2;
     totalA = percent + totalE;
+    
 
     //вывод данных на страницу    
-    $("#hand").html(hand.toFixed(0));
-    $("#percent").html(percent.toFixed(0));
-    $("#pfr").html(pfr.toFixed(0));
-    $("#ffoms").html(ffoms.toFixed(0));
-    $("#fss").html(fss.toFixed(0));
-    $("#fss2").html(fss2.toFixed(0));
-    $("#totalE").html(totalE);
-    $("#totalA").html(totalA);
+    $("#hand").html(Math.round(hand));
+    if (percent>0) {
+        $("#percent").html(Math.round(percent));    
+    } else {
+        $("#percent").html("0");
+    }
+    $("#pfr").html(Math.round(pfr));
+    $("#ffoms").html(Math.round(ffoms));
+    $("#fss").html(Math.round(fss));
+    $("#fss2").html(Math.round(fss2));
+    $("#totalE").html(Math.round(totalE));
+    $("#totalA").html(Math.round(totalA));
 };
 run();
 

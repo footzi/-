@@ -15,16 +15,19 @@
 </head>
 
 <body>
+    <div class="buttons">
+        <button id="clear">Clear</button>
+    </div>
     <div class="data">
         <div class="salary">
-            <label for="salary">Сумма до вычета</label><input id="salary" type="number">
+            <label for="salary">Сумма до вычета</label><input id="salary" type="number" value="100000">
         </div>
         <div class="deductions">
             <p>Вычеты</p>
             <input id="on-children" type="checkbox"><label for="on-children">на детей</label>
             <input id="on-disabled" type="checkbox"><label for="on-disabled">на детей инвалидов</label>
-            <input id="on-limitation" type="checkbox"><label for="1-3">вычеты без ограничений</label>
-            <input id="on-other" type="checkbox"><label for="1-4">иные</label>
+            <input id="on-limitation" type="checkbox"><label for="on-limitation">вычеты без ограничений</label>
+            <input id="on-other" type="checkbox"><label for="on-other">иные</label>
         </div>
         <div class="disabled">
             <input id="disabled" type="number" value="0"><label for="disabled">кол-во инвалидов</label>
@@ -48,35 +51,44 @@
             <label for="accident">Процент</label><input id="accident" type="number" value="0.2">
         </div>
     </div>
-    <div class="result">
+    <div class="results">
         <p>
             <span>На руки</span>
-            <span id="hand"></span>
+            <span id="hand" class="result"></span>
         </p>
         <p>
             <span>Процент</span>
-            <span id="percent"></span>
+            <span id="percent" class="result"></span>
         </p>
         <p>
             <span>пфр</span>
-            <span id="pfr"></span>
+            <span id="pfr" class="result"></span>
         </p>
         <p>
             <span>ффомс</span>
-            <span id="ffoms"></span>
+            <span id="ffoms" class="result"></span>
         </p>
         <p>
             <span>фсс</span>
-            <span id="fss"></span>
+            <span id="fss" class="result"></span>
         </p>
         <p>
             <span>фсс</span>
-            <span id="fss2"></span>
+            <span id="fss2" class="result"></span>
         </p>
+        <p>
+            <span>итого работадатель</span>
+            <span id="totalE" class="result"></span>
+        </p>
+        <p>
+            <span>итого все</span>
+            <span id="totalA" class="result"></span>
+        </p>
+
     </div>
 </body>
 <script src="jquery.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main — копия.js"></script>
 <script>
 </script>
 

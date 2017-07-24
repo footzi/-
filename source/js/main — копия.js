@@ -15,16 +15,26 @@ $(".children input").on("click", function() {
 //скрытие/открытие полей
 $("#on-disabled").on("click", function() {
     $(".disabled").fadeToggle();
+    $("#disabled").val(0);
 });
 $("#on-limitation").on("click", function() {
     $(".limitation").fadeToggle();
+    $("#limitation").val(0);
 });
 $("#on-other").on("click", function() {
     $(".other").fadeToggle();
+    $("#other").val(0);
 });
 
-$(".data input").change(function() {
-//$(".data input").on("keypress", function () {
+
+//кнопки
+
+$("#clear").on("click", function() {
+    $("input:not(.accident)").val(0);
+    $(".data input").prop("checked", false);
+    $(".result").empty();
+});
+function run() {
     //вывод вычетов с детей
     let deductionsCh,
         deductionsDe,
@@ -60,19 +70,31 @@ $(".data input").change(function() {
         percent = 0;
     };
 
-    let hand = salary - percent;
 
+    let hand = salary - percent;
     let pfr = salary * 22 / 100;
     let ffoms = salary * 5.1 / 100;
     let fss = salary * 2.9 / 100;
     let fss2 = salary * 0.2 / 100;
+    let totalE = pfr + ffoms + fss + fss2;
+    let totalA = percent + totalE;
 
 
 
-    $("#hand").html(hand);
-    $("#percent").html(percent);
-    $("#pfr").html(pfr);
-    $("#ffoms").html(ffoms);
-    $("#fss").html(fss);
-    $("#fss2").html(fss2);
+    $("#hand").html(hand.toFixed(0));
+    $("#percent").html(percent.toFixed(0));
+    $("#pfr").html(pfr.toFixed(0));
+    $("#ffoms").html(ffoms.toFixed(0));
+    $("#fss").html(fss.toFixed(0));
+    $("#fss2").html(fss2.toFixed(0));
+    $("#totalE").html(totalE);
+    $("#totalA").html(totalA);
+};
+run();
+
+$(".data input").on("keyup", function() {
+    run();
 });
+$(".data input").change(function() {
+    run();
+})

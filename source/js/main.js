@@ -12,6 +12,7 @@ $(".children input").on("click", function() {
 });
 
 //скрытие/открытие полей
+$(".disabled, .limitation, .other").hide();
 $("#on-disabled").on("click", function() {
     $(".disabled").fadeToggle();
     $("#disabled").val(0);
@@ -87,7 +88,7 @@ function run() {
 
     //выбор режима расчета
     if ($("#option1").is(":checked")) {
-        $("#hand-text").html("зп на руки");
+        $("#hand-text").html("Сумма зарплаты на руки");
         direct();
 
     }

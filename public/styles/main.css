@@ -295,21 +295,12 @@ input[type=button] {
 .clearfix {
   zoom: 1; }
 
-.disabled,
-.limitation,
-.other {
-  display: none; }
-
 body {
   font-family: OpenSans-Regular;
   background-color: #f9f9fb;
   padding: 4% 0 0 0;
-  color: #1b1b1b; }
-
-.main {
-  width: 60vw;
-  margin: 0 auto;
-  outline: 2px solid red; }
+  color: #1b1b1b;
+  overflow-x: hidden; }
 
 .h1 {
   font-family: OpenSans-Bold;
@@ -320,35 +311,91 @@ body {
   font-size: 0.7em;
   margin-top: 0.5%; }
 
-.option,
-.salary,
-.deductions {
-  display: flex;
-  align-items: center; }
-
-.data {
-  width: 60%;
-  margin-top: 6.2%;
-  font-size: 0.7em; }
-  .data p {
-    display: inline-block;
-    width: 50%; }
-
-.option-inputs {
-  display: flex;
-  flex-direction: column; }
-
-.option input[type=radio] {
-  display: none; }
-
-.option label::before {
-  content: "";
-  display: inline-block;
+input[type=radio] {
+  -webkit-appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15); }
 
-.option input[type=radio]:checked + label:before {
-  background-color: #2d3181; }
+input[type=radio]:checked {
+  box-shadow: inset 0 0 0 5px white;
+  background: #2d3181; }
+
+input[type=radio]:focus {
+  outline: none; }
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15); }
+
+input[type=checkbox]:checked {
+  box-shadow: inset 0 0 0 5px white;
+  background: #2d3181; }
+
+input[type=checkbox]:focus {
+  outline: none; }
+
+input[type=number] {
+  height: 10vh;
+  padding: 2px 0 2px 5px;
+  font-family: OpenSans-Regular;
+  font-size: 1em; }
+  input[type=number] .main {
+    width: 100vw;
+    font-size: 0.7em;
+    margin: 6.2% auto 0 auto;
+    outline: 2px solid red;
+    display: flex; }
+  input[type=number] .data {
+    width: 60%;
+    outline: 2px solid black; }
+    input[type=number] .data div {
+      margin-bottom: 10px; }
+      input[type=number] .data div p {
+        display: inline-block;
+        width: 50%; }
+
+.inputs {
+  width: 50%; }
+
+.inputs-row {
+  display: flex;
+  align-items: center; }
+  .inputs-row label {
+    margin-left: 10px;
+    margin-right: 15px; }
+
+.option,
+.salary,
+.deductions,
+.children,
+.disabled,
+.limitation,
+.other,
+.accident {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.deductions {
+  align-items: flex-start; }
+
+.results {
+  background-color: white;
+  padding: 20px 20px; }
+  .results-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; }
+  .results-salary {
+    margin: 10px 0; }
+  .results-nalogi {
+    margin: 20px 0; }
+    .results-nalogi p {
+      margin: 10px 0; }

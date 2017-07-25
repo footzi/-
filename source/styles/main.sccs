@@ -1,5 +1,0 @@
-.disabled,
-        .limitation,
-        .other {
-            display: none;
-        }

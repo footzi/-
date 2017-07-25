@@ -12,11 +12,11 @@ var htmlmin = require('gulp-htmlmin');
 
 //html
 gulp.task('html', function() {
-        return gulp.src('*.html')
-            .pipe(htmlmin({ collapseWhitespace: true }))
-            .pipe(gulp.dest('../public'));
-    })
-	
+    return gulp.src('*.html')
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(gulp.dest('../public'));
+})
+
 
 //sass
 gulp.task('sass', function() {
@@ -63,6 +63,7 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch('*.html', ['html'])
     gulp.watch('styles/**/*.scss', ['sass'])
     gulp.watch('js/**/*.js', ['js'])
+    gulp.watch('../public/*.html', browserSync.reload)
     gulp.watch('../public/js/**/*', browserSync.reload)
 });
 

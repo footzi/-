@@ -25,16 +25,24 @@ $("#on-other").on("click", function() {
     $("#other").val(0);
 });
 
-//кнопки
-$("#clear").on("click", function() {
-   // $("input:not(.accident)").val(0);
+//очистка
+function clear() {
+    //$("input:not(.accident)").val(0);
     $(".data input:not(.option input)").prop("checked", false);
     $(".result").empty();
+}
+$("#salary").one("click", function() {
+    clear();
+})
+
+//кнопки
+$("#clear").on("click", function() {
+    clear();
 });
 
 //главная функция
 function run() {
-    let deductionsCh,
+    var deductionsCh,
         deductionsDe,
         deductionsLi,
         deductionsOt,
@@ -51,8 +59,8 @@ function run() {
         totalA;
 
     //получение inputов
-     salary = parseInt($("#salary").val());
-     accident = $("#accident").val();
+    salary = parseInt($("#salary").val());
+    accident = $("#accident").val();
 
     //получение вычетов с детей
     deductionsCh = 0;
@@ -75,34 +83,34 @@ function run() {
         percent = 0;
     };
 
-    
+
 
     //выбор режима расчета
     if ($("#option1").is(":checked")) {
-        $("#hand-text").html("зп на руки");      
+        $("#hand-text").html("зп на руки");
         direct();
-        
+
     }
     if ($("#option2").is(":checked")) {
         $("#hand-text").html("зп грязными");
         reverse();
     };
-    
+
     //прямой расчет
-    function direct() {  
+    function direct() {
         hand = salary - percent;
     };
-        
+
     //обратный расчет
     function reverse() {
-        percent=(salary-deductions)*14.94/100; //изменить процент
-        
-    // if (percent<0) {
-    //         console.log("menshe");
-    // };
-    //     console.log(percent);
-        salary=salary+percent;
-        hand=salary;
+        percent = (salary - deductions) * 14.94 / 100; //изменить процент
+
+        // if (percent<0) {
+        //         console.log("menshe");
+        // };
+        //     console.log(percent);
+        salary = salary + percent;
+        hand = salary;
     }
 
     //расчеты зп и процентов
@@ -112,12 +120,12 @@ function run() {
     fss2 = salary * accident / 100;
     totalE = pfr + ffoms + fss + fss2;
     totalA = percent + totalE;
-    
+
 
     //вывод данных на страницу    
     $("#hand").html(Math.round(hand));
-    if (percent>0) {
-        $("#percent").html(Math.round(percent));    
+    if (percent > 0) {
+        $("#percent").html(Math.round(percent));
     } else {
         $("#percent").html("0");
     }

@@ -1,11 +1,3 @@
-@font-face {
-  font-family: OpenSans-Regular;
-  src: url("../fonts/OpenSans-Regular.ttf"); }
-
-@font-face {
-  font-family: OpenSans-Bold;
-  src: url("../fonts/OpenSans-Bold.ttf"); }
-
 /*
 	HTML5 Reset :: style.css
 	----------------------------------------------------------
@@ -16,8 +8,11 @@
 	and the HTML5 Boilerplate	:: http://html5boilerplate.com
 
 -------------------------------------------------------------------------------*/
+
+
 /* Let's default this puppy out
 -------------------------------------------------------------------------------*/
+
 html,
 body,
 body div,
@@ -84,13 +79,14 @@ audio,
 video,
 details,
 summary {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font-weight: normal;
-  vertical-align: baseline;
-  background: transparent; }
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-weight: normal;
+    vertical-align: baseline;
+    background: transparent;
+}
 
 article,
 aside,
@@ -101,25 +97,36 @@ nav,
 section,
 details,
 summary {
-  display: block; }
+    display: block;
+}
+
 
 /* Handle box-sizing while better addressing child elements:
    http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+
 html {
-  box-sizing: border-box; }
+    box-sizing: border-box;
+}
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit; }
+    box-sizing: inherit;
+}
+
 
 /* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+
 /* Responsive images and other embedded objects
 */
+
 img,
 object,
 embed {
-  max-width: 100%; }
+    max-width: 100%;
+}
+
 
 /*
    Note: keeping IMG here will cause problems if you're using foreground images as sprites.
@@ -130,225 +137,223 @@ embed {
 		max-width: none;
 }
 */
+
+
 /* force a vertical scrollbar to prevent a jumpy page */
+
 html {
-  overflow-y: scroll; }
+    overflow-y: scroll;
+}
+
 
 /* we use a lot of ULs that aren't bulleted.
 	don't forget to restore the bullets within content. */
+
 ul {
-  list-style: none; }
+    list-style: none;
+}
 
 blockquote,
 q {
-  quotes: none; }
+    quotes: none;
+}
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
-  content: none; }
+    content: '';
+    content: none;
+}
 
 a {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
 
 del {
-  text-decoration: line-through; }
+    text-decoration: line-through;
+}
 
 abbr[title],
 dfn[title] {
-  border-bottom: 1px dotted #000;
-  cursor: help; }
+    border-bottom: 1px dotted #000;
+    cursor: help;
+}
+
 
 /* tables still need cellspacing="0" in the markup */
+
 table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
 th {
-  font-weight: bold;
-  vertical-align: bottom; }
+    font-weight: bold;
+    vertical-align: bottom;
+}
 
 td {
-  font-weight: normal;
-  vertical-align: top; }
+    font-weight: normal;
+    vertical-align: top;
+}
 
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0; }
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
 
 input,
 select {
-  vertical-align: middle; }
+    vertical-align: middle;
+}
 
 pre {
-  white-space: pre;
-  /* CSS2 */
-  white-space: pre-wrap;
-  /* CSS 2.1 */
-  white-space: pre-line;
-  /* CSS 3 (and 2.1 as well, actually) */
-  word-wrap: break-word;
-  /* IE */ }
+    white-space: pre;
+    /* CSS2 */
+    white-space: pre-wrap;
+    /* CSS 2.1 */
+    white-space: pre-line;
+    /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word;
+    /* IE */
+}
 
 input[type="radio"] {
-  vertical-align: text-bottom; }
+    vertical-align: text-bottom;
+}
 
 input[type="checkbox"] {
-  vertical-align: bottom; }
+    vertical-align: bottom;
+}
 
 .ie7 input[type="checkbox"] {
-  vertical-align: baseline; }
+    vertical-align: baseline;
+}
 
 .ie6 input {
-  vertical-align: text-bottom; }
+    vertical-align: text-bottom;
+}
 
 select,
 input,
 textarea {
-  font: 99% sans-serif; }
+    font: 99% sans-serif;
+}
 
 table {
-  font-size: inherit;
-  font: 100%; }
+    font-size: inherit;
+    font: 100%;
+}
 
 small {
-  font-size: 85%; }
+    font-size: 85%;
+}
 
 strong {
-  font-weight: bold; }
+    font-weight: bold;
+}
 
 td,
 td img {
-  vertical-align: top; }
+    vertical-align: top;
+}
+
 
 /* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+
 sub,
 sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative; }
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+}
 
 sup {
-  top: -0.5em; }
+    top: -0.5em;
+}
 
 sub {
-  bottom: -0.25em; }
+    bottom: -0.25em;
+}
+
 
 /* standardize any monospaced elements */
+
 pre,
 code,
 kbd,
 samp {
-  font-family: monospace, sans-serif; }
+    font-family: monospace, sans-serif;
+}
+
 
 /* hand cursor on clickable elements */
+
 .clickable,
 label,
 input[type=button],
 input[type=submit],
 input[type=file],
 button {
-  cursor: pointer; }
+    cursor: pointer;
+}
+
 
 /* Webkit browsers add a 2px margin outside the chrome of form elements */
+
 button,
 input,
 select,
 textarea {
-  margin: 0; }
+    margin: 0;
+}
+
 
 /* make buttons play nice in IE */
+
 button,
 input[type=button] {
-  width: auto;
-  overflow: visible; }
+    width: auto;
+    overflow: visible;
+}
+
 
 /* scale images in IE7 more attractively */
+
 .ie7 img {
-  -ms-interpolation-mode: bicubic; }
+    -ms-interpolation-mode: bicubic;
+}
+
 
 /* prevent BG image flicker upon hover
    (commented out as usage is rare, and the filter syntax messes with some pre-processors)
 .ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
 */
+
+
 /* let's clear some floats */
+
 .clearfix:before,
 .clearfix:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  overflow: hidden; }
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
 
 .clearfix:after {
-  clear: both; }
+    clear: both;
+}
 
 .clearfix {
-  zoom: 1; }
-
-.disabled,
-.limitation,
-.other {
-  display: none; }
-
-body {
-  font-family: OpenSans-Regular;
-  background-color: #f9f9fb;
-  padding: 4% 0 0 0;
-  color: #1b1b1b; }
-
-.main {
-  width: 60vw;
-  margin: 0 auto;
-  outline: 2px solid red; }
-
-.h1 {
-  font-family: OpenSans-Bold;
-  font-size: 1.2em;
-  color: #2d3181; }
-
-.h2 {
-  font-size: 0.7em;
-  margin-top: 0.5%; }
-
-.option,
-.salary,
-.deductions {
-  display: flex;
-  align-items: center; }
-
-.data {
-  width: 60%;
-  margin-top: 6.2%;
-  font-size: 0.7em; }
-  .data p {
-    display: inline-block;
-    width: 50%; }
-
-.option-inputs {
-  display: flex;
-  flex-direction: column; }
-
-.option input[type=radio] {
-  display: none; }
-
-.option label::before {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15); }
-
-.option input[type=radio]:checked + label:before {
-  background-color: #2d3181; }
+    zoom: 1;
+}

@@ -1,41 +1,52 @@
 @import "components/vars";
 @import "components/fonts";
 @import "components/resest";
-
-body {
+.body {
     font-family: OpenSans-Regular;
     background-color: #f9f9fb;
-    padding: 4% 0 0 0;
+    width: 1170px;
+    margin: 0 auto;
+    //padding: 4% 0 0 0;
+    padding: 80px 0 0 0;
+    outline: 2px solid red;
     color: #1b1b1b;
     overflow-x: hidden;
+    letter-spacing: 0.3px;
+    line-height: 1.86;
 }
-
-
 
 .h1 {
     font: {
         family: OpenSans-Bold;
-        size: 1.2em;
+        //size: 1.2em;
+        size: 26px;
     }
+    letter-spacing: 1.6px;
     color: $accentcolor;
 }
 
 .h2 {
-    font-size: 0.7em;
-    margin-top: 0.5%;
+    //font-size: 0.7em;
+    font-size: 16px;
+    // margin-top: 0.5%;
+    margin-top: 22px;
 }
+
 input[type=radio] {
-        -webkit-appearance: none;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: white;
-        box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
-    }
-input[type=radio]:checked{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    //box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
+    border: 1px solid #efeff5;
+}
+
+input[type=radio]:checked {
     box-shadow: inset 0 0 0 5px white;
     background: $accentcolor;
 }
+
 input[type=radio]:focus {
     outline: none;
 }
@@ -48,57 +59,63 @@ input[type=checkbox] {
     background-color: white;
     box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
 }
-input[type=checkbox]:checked{
+
+input[type=checkbox]:checked {
     box-shadow: inset 0 0 0 5px white;
     background: $accentcolor;
 }
+
 input[type=checkbox]:focus {
     outline: none;
 }
 
 input[type=number] {
-    height: 10vh;
-    padding: 2px 0 2px 5px;
+    height: 25px;
+    width: 100%;
+    padding: 20px;
     font: {
         family: OpenSans-Regular;
-        size: 1em;
+        size: 15px;
     }
+    color: #1b1b1b;
+    box-shadow: 0px 2px 10px 0 rgba(45, 49, 129, 0.05);
+    border-color: transparent;
+}
 
 .main {
     //width: 60vw;
-    width: 100vw;
-    font-size: 0.7em;
-    margin: 6.2% auto 0 auto;
-    outline: 2px solid red;
+    //font-size: 0.7em;
+    font-size: 14px;
+    //margin: 0 auto 0 auto;
     display: flex;
 }
 
 .data {
-    width: 60%;
+    width: 740px;
     //width: 100%;
-    outline: 2px solid black;
-    div {
-        margin-bottom: 10px;
+    margin-top: 70px;
+    >div {
+        margin-bottom: 25px;
         p {
             display: inline-block;
             width: 50%;
         }
     }
-    
 }
 
-}
 .inputs {
     width: 50%;
-} 
+}
+
 .inputs-row {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
     label {
-        margin-left: 10px;
-        margin-right: 15px;
+        margin: 0 30px 0 15px;
     }
 }
+
 .option,
 .salary,
 .deductions,
@@ -111,20 +128,23 @@ input[type=number] {
     align-items: center;
     justify-content: space-between;
 }
+
 .deductions {
-    align-items:flex-start;
+    align-items: flex-start;
 }
+
 .results {
+    // width: 40%;
+    width: 370px;
     background-color: white;
-    padding:20px 20px;
+    padding: 20px 20px;
     &-row {
         display: flex;
         justify-content: space-between;
         margin-bottom: 10px;
-
-    } 
+    }
     &-salary {
-        margin:10px 0;
+        margin: 10px 0;
     }
     &-nalogi {
         margin: 20px 0;

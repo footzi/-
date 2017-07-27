@@ -1,5 +1,29 @@
+//функционал кнопок
+let flag=0;
+$("#open").on("click", function () {
+    if (flag==0) {
+        $(".main").fadeIn().css({"display":"flex"});
+        $(this).width(50);
+        $(this).children("img").attr("src","../images/icon4.png");
+        $(this).children("span")
+            .empty()
+            .css({"margin":"0"});
+        flag=1;
+    } else {
+        clear();
+    };
+});
+$("#open").hover(function() {
+    if(flag==1) {
+        $(this).width(190);
+        $(this).children("span")
+            .html("ОЧИСТИТЬ")
+            .css({"margin-left":"15px"});
+    }
+});
+
 //выбор либо снятие радио на детей
-$("#on-children").on("click", function() {
+$("#on-children").on("click", function () {
     if ($(this).is(":checked")) {
         $(".children input:first").prop("checked", true);
     } else {
@@ -7,43 +31,43 @@ $("#on-children").on("click", function() {
     }
 });
 
-$(".children input").on("click", function() {
+$(".children input").on("click", ()=> {
     $("#on-children").prop("checked", true);
 });
 
 //скрытие/открытие полей
 $(".disabled, .limitation, .other").hide();
-$("#on-disabled").on("click", function() {
+$("#on-disabled").on("click", ()=> {
     $(".disabled").fadeToggle();
     $("#disabled").val(0);
 });
-$("#on-limitation").on("click", function() {
+$("#on-limitation").on("click", ()=> {
     $(".limitation").fadeToggle();
     $("#limitation").val(0);
 });
-$("#on-other").on("click", function() {
+$("#on-other").on("click", ()=> {
     $(".other").fadeToggle();
     $("#other").val(0);
 });
 
 //очистка
 function clear() {
-    //$("input:not(.accident)").val(0);
+    $("#salary").val(0);
     $(".data input:not(.option input)").prop("checked", false);
     $(".result").empty();
 }
-$("#salary").one("click", function() {
+$("#salary").one("click", ()=> {
     clear();
 })
 
 //кнопки
-$("#clear").on("click", function() {
+$("#clear").on("click", ()=> {
     clear();
 });
 
 //главная функция
 function run() {
-    var deductionsCh,
+    let deductionsCh,
         deductionsDe,
         deductionsLi,
         deductionsOt,
@@ -85,31 +109,27 @@ function run() {
     };
 
 
-
     //выбор режима расчета
     if ($("#option1").is(":checked")) {
+        $(".salary p").html("Введите сумму зарплаты до налогообложения");
         $("#hand-text").html("Сумма зарплаты на руки");
         direct();
 
     }
     if ($("#option2").is(":checked")) {
-        $("#hand-text").html("зп грязными");
+        $(".salary p").html('Введите сумму зарплаты полученную на "руки"');
+        $("#hand-text").html("Cумма зарплаты до налогооблажения");
         reverse();
     };
 
     //прямой расчет
-    function direct() {
+    function direct () {
         hand = salary - percent;
     };
 
     //обратный расчет
     function reverse() {
-        percent = (salary - deductions) * 14.94 / 100; //изменить процент
-
-        // if (percent<0) {
-        //         console.log("menshe");
-        // };
-        //     console.log(percent);
+        percent = (salary - deductions) * 13 / 100; //изменить процент
         salary = salary + percent;
         hand = salary;
     }
@@ -124,26 +144,26 @@ function run() {
 
 
     //вывод данных на страницу    
-    $("#hand").html(Math.round(hand));
+    $("#hand").html(Math.round(hand)+" .-");
     if (percent > 0) {
-        $("#percent").html(Math.round(percent));
+        $("#percent").html(Math.round(percent)+" .-");
     } else {
         $("#percent").html("0");
     }
-    $("#pfr").html(Math.round(pfr));
-    $("#ffoms").html(Math.round(ffoms));
-    $("#fss").html(Math.round(fss));
-    $("#fss2").html(Math.round(fss2));
-    $("#totalE").html(Math.round(totalE));
-    $("#totalA").html(Math.round(totalA));
+    $("#pfr").html(Math.round(pfr)+" .-");
+    $("#ffoms").html(Math.round(ffoms)+" .-");
+    $("#fss").html(Math.round(fss)+" .-");
+    $("#fss2").html(Math.round(fss2)+" .-");
+    $("#totalE").html(Math.round(totalE)+" .-");
+    $("#totalA").html(Math.round(totalA)+" .-");
 };
 run();
 
 //выполение функции на нажатие кнопки
-$(".data input").on("keyup", function() {
+$(".data input").on("keyup", ()=> {
     run();
 });
 //выполение функции при изменении объектов
-$(".data input").change(function() {
+$(".data input").change(()=> {
     run();
 })

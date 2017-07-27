@@ -1,6 +1,7 @@
+@import "components/resest";
 @import "components/vars";
 @import "components/fonts";
-@import "components/resest";
+
 .body {
     font-family: OpenSans-Regular;
     background-color: #f9f9fb;
@@ -9,61 +10,103 @@
     //padding: 4% 0 0 0;
     padding: 80px 0 0 0;
     outline: 2px solid red;
-    color: #1b1b1b;
+    color: $maincolor;
     overflow-x: hidden;
     letter-spacing: 0.3px;
     line-height: 1.86;
 }
-
-.h1 {
-    font: {
-        family: OpenSans-Bold;
-        //size: 1.2em;
-        size: 26px;
+.header {
+    display: flex;
+    justify-content: space-between;
+    &-title {
+        .h1 {
+            font: {
+                family: OpenSans-Bold;
+                //size: 1.2em;
+                size: 26px;
+            }
+            letter-spacing: 1.6px;
+            color: $accentcolor;
+        }
+        .h2 {
+            //font-size: 0.7em;
+            font-size: 16px;
+            // margin-top: 0.5%;
+            margin-top: 22px;
+        }    
     }
-    letter-spacing: 1.6px;
-    color: $accentcolor;
+    &-button {
+        #open {
+            @include center;
+            color: $whitecolor;
+            font: {
+                family: OpenSans-Bold;
+                size: 15px;
+            }
+            width: 300px;
+            height: 50px;
+            background-color: $accentcolor;
+            cursor: pointer;
+            transition: all 0.5s;
+            span {
+                margin-left:15px; 
+            }
+        }                               
+    }
 }
 
-.h2 {
-    //font-size: 0.7em;
-    font-size: 16px;
-    // margin-top: 0.5%;
-    margin-top: 22px;
-}
 
 input[type=radio] {
+    @include center;
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: white;
-    //box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
-    border: 1px solid #efeff5;
+    background-color: $whitecolor;
+    box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
 }
 
-input[type=radio]:checked {
-    box-shadow: inset 0 0 0 5px white;
-    background: $accentcolor;
-}
+// input[type=radio]:checked {
+//     background-image: url("../images/check1.png");
+//     background-repeat: no-repeat;
+//     background-position: 50%;
+//     background-size:50%;
+// }
 
+input[type=radio]:checked:before {
+    content: "";
+    display:inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius:5px;
+    background-color:$accentcolor;
+}
 input[type=radio]:focus {
     outline: none;
 }
 
 input[type=checkbox] {
+    @include center;
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
     border-radius: 4px;
-    background-color: white;
+    background-color: $whitecolor;
     box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
 }
-
-input[type=checkbox]:checked {
-    box-shadow: inset 0 0 0 5px white;
-    background: $accentcolor;
+input[type=checkbox]:checked:before {
+    content: "";
+    display:inline-block;
+    width: 10px;
+    height: 10px;
+    background-color:$accentcolor;
 }
+// input[type=checkbox]:checked {
+//     background-image: url("../images/check2.png");
+//     background-repeat: no-repeat;
+//     background-position: 50%;
+//     background-size:50%;
+// }
 
 input[type=checkbox]:focus {
     outline: none;
@@ -77,21 +120,20 @@ input[type=number] {
         family: OpenSans-Regular;
         size: 15px;
     }
-    color: #1b1b1b;
+    color: $maincolor;
     box-shadow: 0px 2px 10px 0 rgba(45, 49, 129, 0.05);
     border-color: transparent;
 }
 
 .main {
-    //width: 60vw;
-    //font-size: 0.7em;
+    display: none;
     font-size: 14px;
-    //margin: 0 auto 0 auto;
-    display: flex;
+    //display: flex;
+    justify-content: space-between;
 }
 
 .data {
-    width: 740px;
+    width: 700px;
     //width: 100%;
     margin-top: 70px;
     >div {
@@ -136,20 +178,54 @@ input[type=number] {
 .results {
     // width: 40%;
     width: 370px;
-    background-color: white;
-    padding: 20px 20px;
+    margin-left: 10px;
+    background-color: $whitecolor;
+    padding: 45px 40px;
+    .h3 {
+        display: flex;
+        align-items: center;
+        font: {
+                family: OpenSans-Bold;
+                size: 16px;
+            }
+        img {
+            margin-right: 30px;
+        }
+    }
     &-row {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
-    }
-    &-salary {
+        align-items:center;
         margin: 10px 0;
     }
-    &-nalogi {
-        margin: 20px 0;
+    &-salary {
+        margin: 35px 0;
+    }
+    &-tax {
+        margin: 35px 0;
+        &-title {
+            margin:20px 0;
+        }
         p {
-            margin: 10px 0;
+            &:last-child {
+                font-family: OpenSans-Bold;
+                margin: 20px 0;
+                padding-bottom:40px;
+                border-bottom: 5px solid #f5f5f9;
+            }
+        }
+    }
+    &-all {
+        p {
+            margin: 0;
+            &:last-child {
+                color: #989898;
+            }
+        }
+        .results-row {
+            font-family: OpenSans-Bold;
         }
     }
 }
+
+@import "components/media";

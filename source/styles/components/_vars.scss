@@ -1,1 +1,9 @@
 $accentcolor: #2d3181;
+$maincolor: #1b1b1b;
+$whitecolor: #ffffff;
+
+@mixin center () {
+	display:flex;
+	align-items:center;
+	justify-content:center; 
+}

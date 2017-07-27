@@ -1,0 +1,37 @@
+@media only screen and (max-width:1170px) {}
+
+@media only screen and (max-width:1169px) {
+	.body {
+		width: 100%;
+		padding: 40px;
+	}
+	.header {
+		flex-direction: column;
+		&-button {
+			margin-top: 22px;
+		}
+	}
+	.main {
+		flex-direction: column;
+	}
+	.data {
+		width: 100%;
+	}
+	.results {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+
+@media only screen and (max-width:992px) {}
+
+@media only screen and (max-width:768px) {
+	.body {
+		//width: 480px;
+	}
+}
+
+@media only screen and (max-width:480px) {}
+
+@media only screen and (max-width:320px) {}

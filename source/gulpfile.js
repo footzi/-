@@ -3,12 +3,10 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglifyjs');
-//var rename = require('gulp-rename');
-//var imagemin = require("gulp-imagemin");
-//var pngquant = require("imagemin-pngquant");
 var notify = require('gulp-notify');
-//var autoprefixer = require('gulp-autoprefixer');
+var autoprefixer = require('gulp-autoprefixer');
 var htmlmin = require('gulp-htmlmin');
+var babel = require('gulp-babel');
 
 //html
 gulp.task('html', function() {
@@ -21,7 +19,7 @@ gulp.task('html', function() {
 //sass
 gulp.task('sass', function() {
     return gulp.src('styles/**/*.scss')
-        // .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(sass({}))
         .on('error', notify.onError({
             title: 'SASS Compilation Failed',
@@ -41,6 +39,9 @@ gulp.task("js", function() {
             'js/**/*'
         ])
         .pipe(concat('main.min.js'))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(uglify())
         .on('error', notify.onError({
             title: 'JS Compilation Failed',
@@ -58,6 +59,16 @@ gulp.task('browserSync', function() {
     })
 });
 
+//autoprefixer
+gulp.task("autoprefixer", function() {
+    return gulp.src("../public/styles/main.css")
+        .pipe(autoprefixer({
+            browsers: ['last 5 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('../public/styles/'));
+})
+
 //watch
 gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch('*.html', ['html'])
@@ -67,4 +78,4 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch('../public/js/**/*', browserSync.reload)
 });
 
-gulp.task("default", ["watch"])
+gulp.task("default", ["watch"]);

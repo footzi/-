@@ -124,6 +124,11 @@ input[type=number] {
             width: 50%;
         }
     }
+    .accident {
+        span {
+            color: $selectioncolor;    
+        }
+    }
 }
 
 .inputs {
@@ -194,12 +199,15 @@ input[type=number] {
                 border-bottom: 5px solid #f5f5f9;
             }
         }
+        img {
+            cursor: pointer;
+        }
     }
     &-all {
         p {
             margin: 0;
             &:last-child {
-                color: #989898;
+                color: $selectioncolor;
             }
         }
         .results-row {

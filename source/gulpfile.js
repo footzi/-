@@ -19,8 +19,7 @@ gulp.task('html', function() {
 //sass
 gulp.task('sass', function() {
     return gulp.src('styles/**/*.scss')
-        .pipe(sass({ outputStyle: 'compressed' }))
-        .pipe(sass({}))
+        .pipe(sass({outputStyle: 'compressed'}))
         .on('error', notify.onError({
             title: 'SASS Compilation Failed',
             message: '<%= error.message %>'
@@ -28,7 +27,6 @@ gulp.task('sass', function() {
         .pipe(browserSync.reload({
             stream: true
         }))
-        // .pipe(rename("main.min.css"))
         .pipe(gulp.dest('../public/styles'));
 });
 

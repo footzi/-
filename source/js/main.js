@@ -129,7 +129,7 @@ function run() {
 
     //обратный расчет
     function reverse() {
-        percent = (salary - deductions) * 13 / 100; //изменить процент
+        percent = (salary - deductions) * 13 / 100;
         salary = salary + percent;
         hand = salary;
     }

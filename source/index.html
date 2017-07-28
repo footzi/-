@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionnaire-fibernet</title>
+    <title>Калькулятор налогов с зарплаты</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
-
 <body class="body">
     <header class="header">
         <div class="header-title">
@@ -16,7 +14,7 @@
         </div>
         <div class="header-button">
             <div id="open">
-                <img src="images/icon3.png" alt="">
+                <img src="images/icon3.png" alt="открыть калькулятор">
                 <span>ОТКРЫТЬ КАЛЬКУЛЯТОР</span>
             </div>
         </div>
@@ -39,7 +37,7 @@
             <div class="salary">
                 <p></p>
                 <div class="inputs">
-                    <input id="salary" type="number" value="150000">
+                    <input id="salary" type="number" value="30000">
                 </div>
             </div>
             <div class="deductions">
@@ -91,7 +89,7 @@
                 </div>
             </div>
             <div class="accident">
-                <p>Введите процент отчисления в ФСС на несчастные случаи и проф. заболевания (по умолчанию 0.2%)</p>
+                <p>Введите процент отчисления в ФСС на несчастные случаи и проф. заболевания <span>(по умолчанию 0.2%)</span></p>
                 <div class="inputs">
                     <input id="accident" type="number" value="0.2">
                 </div>
@@ -128,7 +126,7 @@
                 </p>
                 <p class="results-row">
                     <span>Сумма в ФСС
-                        <img src="images/icon2.png">
+                        <img src="images/icon2.png" title="Отчисления по несчастным случаям и проф. заболеваниям">
                     </span>
                     <span id="fss2" class="result"></span>
                 </p>
@@ -150,5 +148,4 @@
 <script src="js/main.min.js"></script>
 <script>
 </script>
-
 </html>

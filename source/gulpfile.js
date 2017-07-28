@@ -19,7 +19,7 @@ gulp.task('html', function() {
 //sass
 gulp.task('sass', function() {
     return gulp.src('styles/**/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(sass({}))
         .on('error', notify.onError({
             title: 'SASS Compilation Failed',
@@ -72,10 +72,15 @@ gulp.task("autoprefixer", function() {
 //watch
 gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch('*.html', ['html'])
-    gulp.watch('styles/**/*.scss', ['sass'])
+        // gulp.watch('styles/**/*.scss', ['sass'])
+    gulp.watch('styles/**/*.scss', function(event, cb) {
+        setTimeout(function() { gulp.start('sass'); }, 500)
+    })
     gulp.watch('js/**/*.js', ['js'])
     gulp.watch('../public/*.html', browserSync.reload)
     gulp.watch('../public/js/**/*', browserSync.reload)
+
+
 });
 
 gulp.task("default", ["watch"]);

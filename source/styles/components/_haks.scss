@@ -1,0 +1,9 @@
+/* стили только для IE10 IE11 */
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    input[type=number] {
+        height: inherit;
+        padding: 10px;
+    }
+}

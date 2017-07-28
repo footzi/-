@@ -1,20 +1,18 @@
 @import "components/resest";
 @import "components/vars";
 @import "components/fonts";
-
 .body {
     font-family: OpenSans-Regular;
     background-color: #f9f9fb;
     width: 1170px;
     margin: 0 auto;
-    //padding: 4% 0 0 0;
     padding: 80px 0 0 0;
-    outline: 2px solid red;
     color: $maincolor;
     overflow-x: hidden;
     letter-spacing: 0.3px;
     line-height: 1.86;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -22,18 +20,15 @@
         .h1 {
             font: {
                 family: OpenSans-Bold;
-                //size: 1.2em;
                 size: 26px;
             }
             letter-spacing: 1.6px;
             color: $accentcolor;
         }
         .h2 {
-            //font-size: 0.7em;
             font-size: 16px;
-            // margin-top: 0.5%;
             margin-top: 22px;
-        }    
+        }
     }
     &-button {
         #open {
@@ -49,12 +44,11 @@
             cursor: pointer;
             transition: all 0.5s;
             span {
-                margin-left:15px; 
+                margin-left: 15px;
             }
-        }                               
+        }
     }
 }
-
 
 input[type=radio] {
     @include center;
@@ -66,21 +60,15 @@ input[type=radio] {
     box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
 }
 
-// input[type=radio]:checked {
-//     background-image: url("../images/check1.png");
-//     background-repeat: no-repeat;
-//     background-position: 50%;
-//     background-size:50%;
-// }
-
 input[type=radio]:checked:before {
     content: "";
-    display:inline-block;
+    display: inline-block;
     width: 10px;
     height: 10px;
-    border-radius:5px;
-    background-color:$accentcolor;
+    border-radius: 5px;
+    background-color: $accentcolor;
 }
+
 input[type=radio]:focus {
     outline: none;
 }
@@ -94,19 +82,14 @@ input[type=checkbox] {
     background-color: $whitecolor;
     box-shadow: 0 0 5px 0 rgba(45, 49, 129, 0.15);
 }
+
 input[type=checkbox]:checked:before {
     content: "";
-    display:inline-block;
+    display: inline-block;
     width: 10px;
     height: 10px;
-    background-color:$accentcolor;
+    background-color: $accentcolor;
 }
-// input[type=checkbox]:checked {
-//     background-image: url("../images/check2.png");
-//     background-repeat: no-repeat;
-//     background-position: 50%;
-//     background-size:50%;
-// }
 
 input[type=checkbox]:focus {
     outline: none;
@@ -128,13 +111,11 @@ input[type=number] {
 .main {
     display: none;
     font-size: 14px;
-    //display: flex;
     justify-content: space-between;
 }
 
 .data {
     width: 700px;
-    //width: 100%;
     margin-top: 70px;
     >div {
         margin-bottom: 25px;
@@ -176,7 +157,6 @@ input[type=number] {
 }
 
 .results {
-    // width: 40%;
     width: 370px;
     margin-left: 10px;
     background-color: $whitecolor;
@@ -185,9 +165,9 @@ input[type=number] {
         display: flex;
         align-items: center;
         font: {
-                family: OpenSans-Bold;
-                size: 16px;
-            }
+            family: OpenSans-Bold;
+            size: 16px;
+        }
         img {
             margin-right: 30px;
         }
@@ -195,7 +175,7 @@ input[type=number] {
     &-row {
         display: flex;
         justify-content: space-between;
-        align-items:center;
+        align-items: center;
         margin: 10px 0;
     }
     &-salary {
@@ -204,13 +184,13 @@ input[type=number] {
     &-tax {
         margin: 35px 0;
         &-title {
-            margin:20px 0;
+            margin: 20px 0;
         }
         p {
             &:last-child {
                 font-family: OpenSans-Bold;
                 margin: 20px 0;
-                padding-bottom:40px;
+                padding-bottom: 40px;
                 border-bottom: 5px solid #f5f5f9;
             }
         }
@@ -224,8 +204,12 @@ input[type=number] {
         }
         .results-row {
             font-family: OpenSans-Bold;
+            .result {
+                white-space: nowrap;
+            }
         }
     }
 }
 
 @import "components/media";
+@import "components/haks";

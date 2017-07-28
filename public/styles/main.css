@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
   margin: 0;
   padding: 0;
@@ -144,11 +145,17 @@ button, input[type=button] {
 
 @font-face {
   font-family: OpenSans-Regular;
-  src: url("../fonts/OpenSans-Regular.ttf"); }
+  src: url("../fonts/opensans-regular/opensans-regular.eot");
+  src: local("☺"), url("../fonts/opensans-regular/opensans-regular.woff") format("woff"), url("../fonts/opensans-regular/opensans-regular.ttf") format("truetype"), url("../fonts/Roboto-Light/opensans-regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 @font-face {
   font-family: OpenSans-Bold;
-  src: url("../fonts/OpenSans-Bold.ttf"); }
+  src: url("../fonts/opensans-bold/opensans-bold.eot");
+  src: local("☺"), url("../fonts/opensans-bold/opensans-bold.woff") format("woff"), url("../fonts/opensans-bold/opensans-bold.ttf") format("truetype"), url("../fonts/Roboto-bold/opensans-bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 .body {
   font-family: OpenSans-Regular;
@@ -156,7 +163,6 @@ button, input[type=button] {
   width: 1170px;
   margin: 0 auto;
   padding: 80px 0 0 0;
-  outline: 2px solid red;
   color: #1b1b1b;
   overflow-x: hidden;
   letter-spacing: 0.3px;
@@ -325,6 +331,9 @@ input[type=number] {
 .results-all .results-row {
   font-family: OpenSans-Bold; }
 
+.results-all .results-row .result {
+  white-space: nowrap; }
+
 @media only screen and (max-width: 1169px) {
   .body {
     width: 100%;
@@ -340,3 +349,37 @@ input[type=number] {
   .results {
     width: 100%;
     margin-left: 0; } }
+
+@media only screen and (max-width: 992px) {
+  .header-title .h1 {
+    font-size: 20px; }
+  .header-title .h1 .h2 {
+    font-size: 18px; }
+  .main {
+    font-size: 14px; }
+  .data {
+    margin-top: 40px; } }
+
+@media only screen and (max-width: 768px) {
+  .body {
+    padding: 10px; }
+  .data > div {
+    flex-direction: column;
+    align-items: center; }
+  .data > div p {
+    width: 100%; }
+  .inputs {
+    margin-top: 10px;
+    width: 100%; } }
+
+@media only screen and (max-width: 480px) {
+  input[type=number] {
+    font-size: 11px;
+    padding: 10px; }
+  .main {
+    font-size: 11px; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  input[type=number] {
+    height: inherit;
+    padding: 10px; } }

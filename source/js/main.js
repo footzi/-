@@ -56,14 +56,6 @@ function clear() {
     $(".data input:not(.option input)").prop("checked", false);
     $(".result").empty();
 }
-$("#salary").one("click", () => {
-    clear();
-})
-
-//кнопки
-$("#clear").on("click", () => {
-    clear();
-});
 
 //главная функция
 function run() {
@@ -86,6 +78,9 @@ function run() {
     //получение inputов
     salary = parseInt($("#salary").val());
     accident = $("#accident").val();
+    if (salary !== salary) {
+        salary = 0;
+    }
 
     //получение вычетов с детей
     deductionsCh = 0;
@@ -129,7 +124,7 @@ function run() {
 
     //обратный расчет
     function reverse() {
-        percent = (salary - deductions) * 13 / 100;
+        percent = (salary - deductions) * 14.94 / 100;
         salary = salary + percent;
         hand = salary;
     }

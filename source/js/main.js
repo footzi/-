@@ -124,9 +124,10 @@ function run() {
 
     //обратный расчет
     function reverse() {
-        percent = (salary - deductions) * 14.94 / 100;
+        percent = (salary - deductions) * 13 / 100;
         salary = salary + percent;
         hand = salary;
+
     }
 
     //расчеты зп и процентов

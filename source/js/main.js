@@ -22,6 +22,11 @@ $("#open").hover(function() {
     }
 });
 
+//очистка поля с ЗП при первом клике.
+$("#salary").one("click", function() {
+    $(this).val("");
+    clear();
+})
 //выбор либо снятие радио на детей
 $("#on-children").on("click", function() {
     if ($(this).is(":checked")) {
@@ -55,6 +60,8 @@ function clear() {
     $("#salary").val(0);
     $(".data input:not(.option input)").prop("checked", false);
     $(".result").empty();
+    $(".disabled, .limitation, .other").hide();
+    run();
 }
 
 //главная функция
@@ -97,7 +104,7 @@ function run() {
     deductions = deductionsCh + deductionsDe + deductionsLi + deductionsOt;
 
     //проверка вывода вычетов + сброс стилей после ошибки
-    if (deductions < salary) {
+    if ((deductions < salary)||(salary==0)) {
         percent = (salary - deductions) * 13 / 100;
         $("#hand-text").css({ "color": "#1b1b1b" });
         $("#salary").css({ "borderColor": "transparent" });
@@ -157,7 +164,7 @@ function run() {
     //вывод ошибки при условии если вычеты больше чем ЗП
     if (deductions > salary) {
         $(".result").empty();
-        $("#hand-text").html("Вычеты привышают зарплату").css({ "color": "red" });
+        $("#hand-text").html("Вычеты превышают зарплату").css({ "color": "red" });
         $("#salary").css({ "borderColor": "red" });
     }
 };

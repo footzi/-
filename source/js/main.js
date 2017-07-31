@@ -96,13 +96,14 @@ function run() {
     //подсчет общих вычетов
     deductions = deductionsCh + deductionsDe + deductionsLi + deductionsOt;
 
-    //проверка вывода вычетов
+    //проверка вывода вычетов + сброс стилей после ошибки
     if (deductions < salary) {
         percent = (salary - deductions) * 13 / 100;
+        $("#hand-text").css({ "color": "#1b1b1b" });
+        $("#salary").css({ "borderColor": "transparent" });
     } else {
         percent = 0;
     };
-
 
     //выбор режима расчета
     if ($("#option1").is(":checked")) {
@@ -152,6 +153,13 @@ function run() {
     $("#fss2").html(Math.round(fss2) + " .-");
     $("#totalE").html(Math.round(totalE) + " .-");
     $("#totalA").html(Math.round(totalA) + " .-");
+
+    //вывод ошибки при условии если вычеты больше чем ЗП
+    if (deductions > salary) {
+        $(".result").empty();
+        $("#hand-text").html("Вычеты привышают зарплату").css({ "color": "red" });
+        $("#salary").css({ "borderColor": "red" });
+    }
 };
 run();
 

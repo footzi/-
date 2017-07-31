@@ -1,7 +1,7 @@
 //функционал кнопок
 let flag = 0;
 $("#open").on("click", function() {
-    if (flag == 0) {
+    if (flag === 0) {
         $(".main").fadeIn().css({ "display": "flex" });
         $(this).width(50);
         $(this).children("img").attr("src", "./images/icon4.png");
@@ -14,7 +14,7 @@ $("#open").on("click", function() {
     };
 });
 $("#open").hover(function() {
-    if (flag == 1) {
+    if (flag === 1) {
         $(this).width(190);
         $(this).children("span")
             .html("ОЧИСТИТЬ")
@@ -104,7 +104,7 @@ function run() {
     deductions = deductionsCh + deductionsDe + deductionsLi + deductionsOt;
 
     //проверка вывода вычетов + сброс стилей после ошибки
-    if ((deductions < salary)||(salary==0)) {
+    if ((deductions < salary)||(salary===0)) {
         percent = (salary - deductions) * 13 / 100;
         $("#hand-text").css({ "color": "#1b1b1b" });
         $("#salary").css({ "borderColor": "transparent" });
